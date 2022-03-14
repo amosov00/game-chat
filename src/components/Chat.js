@@ -1,6 +1,6 @@
 import ChatHead from "./ChatHead";
 import emoji from '../images/emoji.svg'
-import {useEffect, useState, useCallback, useRef} from "react";
+import {useEffect, useState, useCallback, useRef, useMemo} from "react";
 import {StaticChat} from "./StaticChat";
 import {myNick} from "../consts";
 import { v4 as uuidv4 } from 'uuid';
@@ -138,6 +138,14 @@ export function Chat() {
       setInitialX(e.clientX)
     }
   }
+  const chatStyles = useMemo(() => {
+    return {
+      width: chatWidth,
+      userSelect: initialX !== null || initialY!== null ? 'none' : 'auto'
+    }
+  }, [initialX, initialY, chatWidth])
+
+
 
 
   return (
@@ -145,7 +153,7 @@ export function Chat() {
       <div className="chat-second-wrapper" onMouseUp={rightKeyUp} onMouseDown={rightKeyDown}>
         <div
           className="chat"
-          style={{width: chatWidth}}
+          style={chatStyles}
         >
           <ChatHead onButtonsClick={setIsChatOpen}/>
           {
