@@ -20,6 +20,13 @@ button {
   border: none;
 }
 
+
+.infinite-scroll {
+  display: flex;
+  flex-direction: column-reverse;
+  overflow: scroll;
+}
+
 .chat-first-wrapper {
   border-top: 5px solid transparent;
   display: inline-block;

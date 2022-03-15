@@ -16,26 +16,24 @@ const socket = io("wss://test-chat-backend-hwads.ondigitalocean.app", {
 export default function useMessagesApi() {
   const dispatch = useDispatch()
   const [hasMore, setHasMore] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   function fetchMessages (offset = 0, socketReceiveMessages) {
-    return new Promise((resolve, reject) => {
-      axios.get('https://test-chat-backend-hwads.ondigitalocean.app/api/messages', {
-        params: {
-          limit: messageLimit,
-          skip: messageLimit * offset + socketReceiveMessages
-        }
-      }).then(({data}) => {
-        if (data.length === 0) {
-          setHasMore(false)
-          resolve()
-          return
-        }
-        dispatch(addDynamicMessages(data))
-        resolve()
-      }).catch(() => {
-        toast.error('Ошибка запроса')
-        reject()
-      })
+    setLoading(true)
+    axios.get('https://test-chat-backend-hwads.ondigitalocean.app/api/messages', {
+      params: {
+        limit: messageLimit,
+        skip: messageLimit * offset + socketReceiveMessages
+      }
+    }).then(({data}) => {
+      if (data.length < messageLimit) {
+        setHasMore(false)
+      }
+      dispatch(addDynamicMessages(data))
+    }).catch(() => {
+      toast.error('Ошибка запроса')
+    }).finally(() => {
+      setLoading(false)
     })
   }
 
@@ -66,5 +64,5 @@ export default function useMessagesApi() {
   function removeHandleMessage() {
     socket.removeListener('message', listener)
   }
-  return {fetchMessages, hasMore, sendMessage, handleMessage, removeHandleMessage}
+  return {fetchMessages, hasMore, sendMessage, handleMessage, removeHandleMessage, loading}
 }

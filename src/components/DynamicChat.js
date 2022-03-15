@@ -1,4 +1,4 @@
-import InfiniteScroll from "react-infinite-scroll-component";
+import {InfiniteScroll} from "./InfiniteScroll";
 import {myNick} from "../consts";
 import {SpinnerCircular} from "spinners-react";
 import Message from "./Message";
@@ -8,15 +8,14 @@ import {useDispatch, useSelector} from "react-redux";
 import {addOffset, cleanDynamicMessages} from "../redux/actionCreaters";
 
 export const DynamicChat = forwardRef(({items}, ref) => {
-  const {fetchMessages, hasMore, handleMessage, removeHandleMessage} = useMessagesApi()
+  const {fetchMessages, hasMore, handleMessage, removeHandleMessage, loading} = useMessagesApi()
   const {dynamicMessagesOffset, receiveMessageCount, chatHeight} = useSelector(s => s)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(cleanDynamicMessages())
-    next().then(() => {
-      handleMessage()
-    })
+    next()
+    handleMessage()
     return () => {
       removeHandleMessage()
       dispatch(cleanDynamicMessages())
@@ -24,30 +23,23 @@ export const DynamicChat = forwardRef(({items}, ref) => {
   }, [])
 
   function next() {
-    return new Promise((resolve) => {
-      fetchMessages(dynamicMessagesOffset, receiveMessageCount).then(() => {
-        resolve()
-      })
-      dispatch(addOffset())
-    })
+    fetchMessages(dynamicMessagesOffset, receiveMessageCount)
+    dispatch(addOffset())
   }
 
   return (
     <div className="chat__messages" style={{
       overflow: 'auto',
       display: 'flex',
-      flexDirection: 'column-reverse',
-      height: chatHeight
+      height: chatHeight,
+      'flex-direction': 'column-reverse'
     }}>
       <InfiniteScroll
         next={next}
         ref={ref}
-        dataLength={items.length}
+        loading={loading}
         hasMore={hasMore}
-        inverse={true}
-        loader={<SpinnerCircular style={{margin: '10px auto'}}/>}
         height={chatHeight}
-        style={{display: 'flex', flexDirection: 'column-reverse'}}
       >
         {items.map((i) => (
           <Message

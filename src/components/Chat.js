@@ -44,7 +44,7 @@ export function Chat() {
       } else if (currentSection === 2) {
         sendMessage(inputValue)
       }
-      chatRef.current?._infScroll?.scroll({
+      chatRef.current.scroll({
         top: 0,
         behavior: 'smooth'
       });

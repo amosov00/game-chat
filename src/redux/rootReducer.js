@@ -8,7 +8,6 @@ import {
   ADD_OFFSET,
   CLEAN_DYNAMIC_MESSAGES,
   ADD_DYNAMIC_MESSAGE,
-  SET_COORDS,
   SET_HEIGHT, SET_WIDTH
 } from "./actions";
 
