@@ -1,4 +1,4 @@
-import InfiniteScroll from "react-infinite-scroll-component";
+import {InfiniteScroll} from "./InfiniteScroll";
 import {myNick} from "../consts";
 import {SpinnerCircular} from "spinners-react";
 import Message from "./Message";
@@ -17,12 +17,8 @@ export const StaticChat = forwardRef(({items}, ref) => {
       <InfiniteScroll
         next={() => {}}
         ref={ref}
-        dataLength={items.length}
         hasMore={false}
-        inverse={true}
-        loader={<SpinnerCircular style={{margin: '10px auto'}}/>}
         height={chatHeight}
-        style={{display: 'flex', flexDirection: 'column-reverse'}}
       >
         {items.map((i) => (
           <Message

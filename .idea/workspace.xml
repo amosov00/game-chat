@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fa5d9a5-fdae-4ecd-bf93-4d905c949c88" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/InfiniteScroll.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/test-chat.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DynamicChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DynamicChat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useMessagesApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useMessagesApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InfiniteScroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InfiniteScroll.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/StaticChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/StaticChat.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/rootReducer.js" afterDir="false" />
     </list>
@@ -71,7 +65,7 @@
   <component name="RunManager">
     <configuration default="true" type="RackRunConfigurationType" factoryName="Rack">
       <RACK_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
-      <RACK_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RACK_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
       <RACK_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RACK_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RACK_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -109,6 +103,7 @@
       <workItem from="1647326911994" duration="42000" />
       <workItem from="1647326997774" duration="264000" />
       <workItem from="1647327279082" duration="947000" />
+      <workItem from="1647328723865" duration="2432000" />
     </task>
     <servers />
   </component>

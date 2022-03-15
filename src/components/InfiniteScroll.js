@@ -7,14 +7,13 @@ export const InfiniteScroll = forwardRef(({children, height, loading, hasMore, n
     const localLoadLine = e.target.scrollHeight - height - 60
     const localCurrentPosition = -e.target.scrollTop
     if (localLoadLine <= localCurrentPosition && !loading && hasMore) {
-      console.log('next')
       next()
     }
   }
   return (
     <div className="infinite-scroll" onScroll={scroll} ref={ref}>
       {children}
-      <SpinnerCircular style={{margin: '10px auto'}}/>
+      {hasMore && <SpinnerCircular style={{margin: '10px auto'}}/>}
     </div>
   )
 })

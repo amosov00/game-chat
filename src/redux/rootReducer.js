@@ -34,6 +34,12 @@ export const rootReducer = createReducer(initialState, (builder) => {
       state.currentSection = action.payload
     })
     .addCase(ADD_DYNAMIC_MESSAGES, (state, action) => {
+      // duplicate check
+      const lastOldMessage = state.dynamicMessages[state.dynamicMessages.length - 1]
+      const firstNewMessage = action.payload[0]
+      if (lastOldMessage?.id === firstNewMessage?.id) {
+        action.payload.splice(0, 1)
+      }
       state.dynamicMessages.push(...action.payload)
     })
     .addCase(CLEAN_DYNAMIC_MESSAGES, (state, action) => {

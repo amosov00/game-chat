@@ -1,6 +1,5 @@
 import {InfiniteScroll} from "./InfiniteScroll";
 import {myNick} from "../consts";
-import {SpinnerCircular} from "spinners-react";
 import Message from "./Message";
 import {useEffect, forwardRef} from "react";
 import useMessagesApi from "../hooks/useMessagesApi";
@@ -32,7 +31,7 @@ export const DynamicChat = forwardRef(({items}, ref) => {
       overflow: 'auto',
       display: 'flex',
       height: chatHeight,
-      'flex-direction': 'column-reverse'
+      flexDirection: 'column-reverse'
     }}>
       <InfiniteScroll
         next={next}
